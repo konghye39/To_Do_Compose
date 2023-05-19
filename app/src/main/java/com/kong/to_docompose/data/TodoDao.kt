@@ -1,4 +1,4 @@
-package com.kong.to_docompose.data.models
+package com.kong.to_docompose.data
 
 import androidx.room.Dao
 import androidx.room.Delete
@@ -6,6 +6,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
+import com.kong.to_docompose.data.models.TodoTask
 import kotlinx.coroutines.flow.Flow
 
 @Dao
