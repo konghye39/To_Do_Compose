@@ -3,9 +3,10 @@ package com.kong.to_docompose.data.repository
 import com.kong.to_docompose.data.TodoDao
 import com.kong.to_docompose.data.TodoDatabase
 import com.kong.to_docompose.data.models.TodoTask
+import dagger.hilt.android.scopes.ViewModelScoped
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
-
+@ViewModelScoped //TODO 어떤 기능인지 찾아보기
 class ToDoRepository @Inject constructor(private val todoDao: TodoDao) {
 
     val getAllTasks :Flow<List<TodoTask>> = todoDao.getAllTasks()
