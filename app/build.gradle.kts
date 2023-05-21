@@ -1,9 +1,7 @@
-import org.jetbrains.kotlin.kapt3.base.Kapt.kapt
-
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    kotlin("kapt")
+    id("com.google.devtools.ksp")
     id("com.google.dagger.hilt.android")
 }
 
@@ -56,7 +54,7 @@ android {
 
 dependencies {
 
-    implementation("androidx.core:core-ktx:1.9.0")
+    implementation("androidx.core:core-ktx:1.10.1")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
     implementation("androidx.activity:activity-compose:1.7.1")
     implementation(platform("androidx.compose:compose-bom:2023.03.00"))
@@ -66,11 +64,16 @@ dependencies {
     implementation("androidx.compose.material3:material3")
 
     implementation("androidx.room:room-runtime:2.6.0-alpha01")
-    kapt("androidx.room:room-compiler:2.6.0-alpha01")
+    implementation("androidx.navigation:navigation-compose:2.6.0-rc01")
+    //room db
+    ksp("androidx.room:room-compiler:2.6.0-alpha01")
     implementation("androidx.room:room-ktx:2.6.0-alpha01")
     implementation("androidx.datastore:datastore-preferences:1.1.0-alpha04")
+    //dagger hilt
     implementation("com.google.dagger:hilt-android:2.46.1")
-    kapt("com.google.dagger:hilt-android-compiler:2.44")
+    ksp("com.google.dagger:hilt-android-compiler:2.44")
+
+
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
@@ -79,8 +82,4 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
-}
-
-kapt {
-    correctErrorTypes = true
 }
