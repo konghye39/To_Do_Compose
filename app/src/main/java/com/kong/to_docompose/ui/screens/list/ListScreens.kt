@@ -1,39 +1,44 @@
 package com.kong.to_docompose.ui.screens.list
 
-import android.os.Build
-import androidx.annotation.RequiresApi
+import androidx.compose.material.FloatingActionButton
+import androidx.compose.material.Icon
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Scaffold
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.FloatingActionButton
-import androidx.compose.material3.Icon
-import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.kong.to_docompose.R
+import com.kong.to_docompose.ui.theme.fabBackgroundColor
 
-@RequiresApi(Build.VERSION_CODES.M)
-@OptIn(ExperimentalMaterial3Api::class)
+
 @Composable
-fun ListScreen(navigateToTaskScreen: (Int) -> Unit) {
+fun ListScreen(navigateToTaskScreen: (taskId:Int) -> Unit) {
     Scaffold(
+        topBar = { ListAppBar() },
         content = {},
         floatingActionButton = {
-            ListFab(navigateToTaskScreen = navigateToTaskScreen)
+            ListFab(onFabClick = navigateToTaskScreen)
         }
     )
 }
 
-@RequiresApi(Build.VERSION_CODES.M)
 @Composable
-fun ListFab(navigateToTaskScreen: (Int) -> Unit) {
-    FloatingActionButton(onClick = { navigateToTaskScreen(-1) }) {
+fun ListFab(onFabClick:(taskId:Int) -> Unit) {
+    //선택된 task가 없어서 일단 -1로 세팅
+    FloatingActionButton(
+        onClick = { onFabClick(-1) },
+        backgroundColor = MaterialTheme.colors.fabBackgroundColor
+    ) {
         Icon(
             imageVector = Icons.Filled.Add,
-            contentDescription = stringResource(id = R.string.add_button)
+            contentDescription = stringResource(id = R.string.add_button),
+            tint = Color.White
         )
     }
+
 }
 
 @Composable

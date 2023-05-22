@@ -11,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId = "com.kong.to_docompose"
-        minSdk = 21
+        minSdk = 23
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
@@ -61,19 +61,17 @@ dependencies {
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.ui:ui-tooling-preview")
-    implementation("androidx.compose.material3:material3")
-
-    implementation("androidx.room:room-runtime:2.6.0-alpha01")
+    implementation ("com.google.android.material:material:1.9.0")
     implementation("androidx.navigation:navigation-compose:2.6.0-rc01")
     //room db
+    implementation("androidx.room:room-runtime:2.6.0-alpha01")
+    implementation("androidx.compose.material:material:1.4.3")
     ksp("androidx.room:room-compiler:2.6.0-alpha01")
     implementation("androidx.room:room-ktx:2.6.0-alpha01")
     implementation("androidx.datastore:datastore-preferences:1.1.0-alpha04")
     //dagger hilt
     implementation("com.google.dagger:hilt-android:2.46.1")
-    ksp("com.google.dagger:hilt-android-compiler:2.44")
-
-
+    ksp("com.google.dagger:hilt-android-compiler:2.46.1")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
