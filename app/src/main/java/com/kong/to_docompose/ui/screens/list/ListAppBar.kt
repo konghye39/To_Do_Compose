@@ -11,6 +11,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.kong.to_docompose.ui.theme.topAppBarBackgroundColor
 import com.kong.to_docompose.ui.theme.topAppBarContentColor
+import com.kong.to_docompose.R
+import com.kong.to_docompose.data.models.Priority
 
 @Composable
 fun ListAppBar() {
@@ -48,6 +50,11 @@ fun SearchAction(onSearchClicked:()->Unit){
             contentDescription = "Search Tasks",
             tint = MaterialTheme.colors.topAppBarContentColor)
     }
+}
+
+@Composable
+fun SortAction(onSortClicked:(Priority) -> Unit){
+
 }
 
 @Composable
